@@ -35,6 +35,10 @@ body > footer {
     width:100%;
 }
 
+header > .menu {
+    width:100%;
+}
+
 header > .menu, header > .menu li {
     display: inline-block;
 }
@@ -179,7 +183,7 @@ form > label {
     clear:left;
 }
 
-form > input[type="text"] {
+form > input[type="text"], form > input[type="password"]  {
     width: 80%;
 }
 

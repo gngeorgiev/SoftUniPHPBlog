@@ -9,7 +9,7 @@ class CommentsController extends BaseController {
 
     public function add($photoId) {
     	$text = $_POST['comment-text'];
-    	$username = 'Anonymous';
+    	$username = ($this->isLoggedIn()) ? $_SESSION['username'] : 'Anonymous';
     	if($text != '') {
     		if($this->commentsModel->create($text, $username, $photoId)) {
 
