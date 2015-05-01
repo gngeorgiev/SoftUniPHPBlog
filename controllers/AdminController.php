@@ -28,11 +28,7 @@ class AdminController extends BaseController {
 		$this->comments = $this->commentsModel->getAll();
 	}
 
-	public function editCategories($id) {	
-
-	}
-
-	public function deleteCategories($id) {
+	public function editCategory($id) {	
 
 	}
 
@@ -40,24 +36,37 @@ class AdminController extends BaseController {
 
 	}
 
-	public function deleteAlbum($id) {
-		
-	}
-
 	public function editPhoto($id) {
 
-	}
-
-	public function deletePhoto($id) {
-		
 	}
 
 	public function editComment($id) {
 
 	}
 
+
+	public function deleteCategory($id) {
+		if($this->adminModel->deleteCategory($id)) {
+			$this->redirect('admin', 'categories');
+		}
+	}
+
+	public function deleteAlbum($id) {
+		if($this->adminModel->deleteAlbum($id)) {
+			$this->redirect('admin', 'albums');
+		}
+	}
+
+	public function deletePhoto($id) {
+		if($this->adminModel->deletePhoto($id)) {
+			$this->redirect('admin', 'photos');
+		}
+	}
+
 	public function deleteComment($id) {
-		
+		if($this->adminModel->deleteComment($id)) {
+			$this->redirect('admin', 'comments');
+		}
 	}
 
 }
