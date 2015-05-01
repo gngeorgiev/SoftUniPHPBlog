@@ -3,6 +3,7 @@
 class AdminController extends BaseController {
 
     protected function onInit() {
+    	$this->authorizeAdmin();
         $this->title = 'ADMIN';
         $this->adminModel = new adminModel();
         $this->categoriesModel = new CategoriesModel();
@@ -26,4 +27,37 @@ class AdminController extends BaseController {
 	public function comments() {
 		$this->comments = $this->commentsModel->getAll();
 	}
+
+	public function editCategories($id) {	
+
+	}
+
+	public function deleteCategories($id) {
+
+	}
+
+	public function editAlbum($id) {
+
+	}
+
+	public function deleteAlbum($id) {
+		
+	}
+
+	public function editPhoto($id) {
+
+	}
+
+	public function deletePhoto($id) {
+		
+	}
+
+	public function editComment($id) {
+
+	}
+
+	public function deleteComment($id) {
+		
+	}
+
 }

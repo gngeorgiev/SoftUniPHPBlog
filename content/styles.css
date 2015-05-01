@@ -240,3 +240,21 @@ form > input[type="submit"] {
     margin:0;
     margin-left: 4%;
 }   
+
+
+table {
+    border-collapse: collapse;
+    margin: 25px;
+}
+
+table * {
+        border:1px solid #dddddd;
+}
+
+table td, table th {
+    padding: 0 5px;
+}
+
+table td:nth-child(1) , table th:nth-child(1)  {
+    text-align: center;
+}
