@@ -14,6 +14,30 @@ class AlbumsModel extends BaseModel {
         return $statement->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function like($id) {
+        $statement = self::$db->prepare(
+            "SELECT likes FROM albums WHERE id = ?");
+        $statement->bind_param("i", $id);
+        $statement->execute();
+        $result = $statement->get_result()->fetch_all(MYSQLI_ASSOC)[0]['likes'] + 1;
+        $statement = self::$db->prepare(
+            "UPDATE albums SET likes = ? WHERE id = ?");
+        $statement->bind_param("ii", $result, $id);
+        $statement->execute();
+    }
+
+    public function dislike($id) {
+        $statement = self::$db->prepare(
+            "SELECT dislikes FROM albums WHERE id = ?");
+        $statement->bind_param("i", $id);
+        $statement->execute();
+        $result = $statement->get_result()->fetch_all(MYSQLI_ASSOC)[0]['dislikes'] - 1;
+        $statement = self::$db->prepare(
+            "UPDATE albums SET dislikes = ? WHERE id = ?");
+        $statement->bind_param("ii", $result, $id);
+        $statement->execute();
+    }
+
     public function create($name) {
         if ($name == '') {
             return false;

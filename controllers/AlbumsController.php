@@ -13,6 +13,7 @@ class AlbumsController extends BaseController {
 
     public function category($id) {
         $this->categoryAlbums = $this->albumsModel->find($id);
+        $this->lastCategoryId = $id;
     }
 
     public function create() {
@@ -25,6 +26,16 @@ class AlbumsController extends BaseController {
                 $this->addErrorMessage("Cannot create author.");
             }
         }
+    }
+
+    public function like($albumId, $categoryId) {
+        $this->albumsModel->like($albumId);
+        $this->redirect('albums', 'category', array($categoryId));
+    }
+
+    public function dislike($albumId, $categoryId) {
+        $this->albumsModel->dislike($albumId);
+        $this->redirect('albums', 'category', array($categoryId));
     }
 
     public function edit($id) {
