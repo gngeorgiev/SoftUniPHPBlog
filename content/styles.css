@@ -194,7 +194,45 @@ form > input[type="submit"] {
 }
 
 
-.comments-holder > form {
-    width:100%;
-    margin:0;
+#photo > ul > li {
+    width:40%;
+    margin-left:30%;
 }
+
+.comments-holder {
+    border:1px solid #cccccc;
+    border-top:none;
+}
+
+.comments-holder > .comment {
+    width:98%;
+    margin: 1%;
+    border-bottom: 1px solid #007acc;
+}
+
+.comments-holder > .comment > .comment-username {
+    padding-left: 5px;
+    font-style: italic;
+}
+
+.comments-holder > .comment > .comment-text {
+    padding: 2px 2px 2px 13px;
+}
+
+.comments-holder > form {
+    width: 98%;
+    margin: 1%;
+}
+
+.comments-holder > form > input[type="text"] {
+    width:66%;
+    margin-top:5px;
+    float:left;
+}
+
+.comments-holder > form > input[type="submit"] {
+    float:left;
+    width:28%;
+    margin:0;
+    margin-left: 4%;
+}   

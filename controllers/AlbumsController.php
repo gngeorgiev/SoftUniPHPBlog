@@ -3,7 +3,7 @@
 class AlbumsController extends BaseController {
 
     protected function onInit() {
-        $this->title = 'Authors';
+        $this->title = 'Albums';
         $this->albumsModel = new AlbumsModel();
         $this->categoriesModel = new CategoriesModel();
     }

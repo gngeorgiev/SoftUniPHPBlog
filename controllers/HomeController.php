@@ -2,7 +2,7 @@
 
 class HomeController extends BaseController {
     protected function onInit() {
-        $this->title = 'Welcome';
+        $this->title = 'Home';
         $this->categoriesModel = new CategoriesModel();
     }
 
