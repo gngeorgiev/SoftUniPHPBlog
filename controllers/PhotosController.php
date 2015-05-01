@@ -15,7 +15,7 @@ class PhotosController extends BaseController {
         $this->albumPhotos = $this->photosModel->find($id);
     }
 
-    public function create() {
+    public function add() {
         if ($this->isPost()) {
             $name = $_POST['name'];
             if ($this->authorsModel->create($name)) {

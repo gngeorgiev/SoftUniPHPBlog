@@ -6,7 +6,7 @@
 
 
 <div id="photos" class="photo-holder">
-	<h1 class="photos-header">Albums</h1>
+	<h1 class="photos-header">Photos</h1>
 	<ul>
 	    <?php foreach ($this->viewBag['albumPhotos'] as $photo) : ?>
 	    	<li><a href="/photos/album/<?= $photo['id'] ?>">
