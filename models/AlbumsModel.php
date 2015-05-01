@@ -6,6 +6,11 @@ class AlbumsModel extends BaseModel {
         return $statement->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getAllWithCountryName() {
+        $statement = self::$db->query("SELECT a.id, a.name, a.likes, a.dislikes, c.name FROM albums a JOIN categories c ON a.category_id = c.id");
+        return $statement->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function find($id) {
         $statement = self::$db->prepare(
             "SELECT * FROM albums WHERE category_id = ?");

@@ -5,6 +5,7 @@ class PhotosController extends BaseController {
     protected function onInit() {
         $this->title = 'Authors';
         $this->photosModel = new PhotosModel();
+        $this->albumsModel = new AlbumsModel();
     }
 
     public function index() {
@@ -17,13 +18,40 @@ class PhotosController extends BaseController {
 
     public function add() {
         if ($this->isPost()) {
+            $extension = pathinfo($_FILES["fileToUpload"]['name'], PATHINFO_EXTENSION);
+            $size = $_FILES["fileToUpload"]["size"];
             $name = $_POST['name'];
-            if ($this->authorsModel->create($name)) {
-                $this->addInfoMessage("Author created.");
-                $this->redirect("authors");
-            } else {
-                $this->addErrorMessage("Cannot create author.");
+            $album = $_POST['album'];
+            $dir = 'content/photos/';
+            $file = $dir . $album . '_' . $name . '.' . $extension;
+
+            if(!$extension){
+                $this->redirect('photos', 'add');
+                return false;
             }
+            if($size > 500000) {
+                $this->redirect('photos', 'add');
+                return false;
+            }
+            if($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png' && $extension != 'gif'){
+                $this->redirect('photos', 'add');
+                return false;
+            }
+            if (file_exists($file)) {
+                $this->redirect('photos', 'add');
+                return false;
+            }
+            var_dump($_FILES["fileToUpload"]["tmp_name"]);
+            var_dump($file);
+            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $file)) {
+                $this->photosModel->create($name, $file, $album);
+                $this->redirect('photos', 'album', array($album));
+            } else {
+                $this->redirect('photos', 'add');
+            }
+
+        } else {
+            $this->albums = $this->albumsModel->getAll();
         }
     }
 

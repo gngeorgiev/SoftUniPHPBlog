@@ -14,14 +14,14 @@ class PhotosModel extends BaseModel {
         return $statement->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function create($name, $category) {
+    public function create($name, $path, $albumId) {
         $zero = 0;
         if ($name == '') {
             return false;
         }
         $statement = self::$db->prepare(
-            "INSERT INTO albums VALUES (NULL, ?, ?, ?, ?)");
-        $statement->bind_param("siii", $name, $zero, $zero, $category);
+            "INSERT INTO photos VALUES (NULL, ?, ?, ?)");
+        $statement->bind_param("ssi", $name, $path, $albumId);
         $statement->execute();
         return $statement->affected_rows > 0;
     }

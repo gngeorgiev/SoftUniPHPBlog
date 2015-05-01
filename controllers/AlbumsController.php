@@ -9,7 +9,7 @@ class AlbumsController extends BaseController {
     }
 
     public function index() {
-        //$this->authors = $this->albumsModel->getAll();
+        
     }
 
     public function category($id) {

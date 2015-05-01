@@ -1,4 +1,4 @@
-    <footer>(c) 2014 MVC Example</footer>
+    <footer>(c) 2015 MVC Photo Gallery</footer>
 </body>
 
 </html>

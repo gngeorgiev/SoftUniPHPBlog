@@ -11,9 +11,8 @@
 	    <?php foreach ($this->viewBag['albumPhotos'] as $photo) : ?>
 	    	<li><a href="/photos/album/<?= $photo['id'] ?>">
 	    		<h1><?= $photo['name'] ?></h1>
-	    		<img src=""/>
+	    		<img src="/<?= $photo['path']?>"/>
 	    	</a>
-
 	    	</li>
 	    <?php endforeach ?>
 	</ul>
