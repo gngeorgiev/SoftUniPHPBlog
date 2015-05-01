@@ -22,8 +22,8 @@
                 } 
 
                 if($this->isLoggedIn()) {
-                    echo '<li style="float:right;><a href="/account/logout">Logout</a></li>';
-                    echo '<li style="float:right;margin-right:60px;"><a>Username: '. $_SESSION['username']. '</a></li>';
+                    echo '<li style="float:right;margin-right:60px;"><a href="/account/logout">Logout</a></li>';
+                    echo '<li style="float:right;margin-right:5px;"><a>Username: '. $_SESSION['username']. '</a></li>';
                 } else {
                     echo '<li style="float:right;margin-right:40px;"><a href="/account/register">Register</a></li><li style="float:right"><a href="/account/login">Login</a></li>';
                 }

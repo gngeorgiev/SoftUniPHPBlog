@@ -11,8 +11,13 @@ class AccountController extends BaseController {
     	if($this->isPost()) {
 	        $username = $_POST['username'];
 	        $password = $_POST['password'];
-	        $hashedPass = password_hash($password, PASSWORD_BCRYPT);
 
+	        if($this->accountModel->login($username, $password)) {
+	        	$this->addUserToSESSION($username, false);
+	        	$this->redirect('home');
+	        } else {
+				$this->redirect('account', 'login');
+	        }
     	}
     }
 
@@ -26,7 +31,7 @@ class AccountController extends BaseController {
 	        	$this->addUserToSESSION($username, false);
 	        	$this->redirect('home');
 	        } else {
-
+				$this->redirect('account', 'register');
 	        }
     	}
     }
@@ -34,6 +39,7 @@ class AccountController extends BaseController {
     public function logout() {
     	if($this->isLoggedIn()) {
     		session_destroy();
+    		$this->redirect('home');
     	}
     }
 
