@@ -31,20 +31,21 @@ class AlbumsModel extends BaseModel {
             "SELECT dislikes FROM albums WHERE id = ?");
         $statement->bind_param("i", $id);
         $statement->execute();
-        $result = $statement->get_result()->fetch_all(MYSQLI_ASSOC)[0]['dislikes'] - 1;
+        $result = $statement->get_result()->fetch_all(MYSQLI_ASSOC)[0]['dislikes'] + 1;
         $statement = self::$db->prepare(
             "UPDATE albums SET dislikes = ? WHERE id = ?");
         $statement->bind_param("ii", $result, $id);
         $statement->execute();
     }
 
-    public function create($name) {
+    public function create($name, $category) {
+        $zero = 0;
         if ($name == '') {
             return false;
         }
         $statement = self::$db->prepare(
-            "INSERT INTO categories VALUES(NULL, ?)");
-        $statement->bind_param("s", $name);
+            "INSERT INTO albums VALUES (NULL, ?, ?, ?, ?)");
+        $statement->bind_param("siii", $name, $zero, $zero, $category);
         $statement->execute();
         return $statement->affected_rows > 0;
     }

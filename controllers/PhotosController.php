@@ -1,18 +1,18 @@
 <?php
 
-class AlbumsController extends BaseController {
+class PhotosController extends BaseController {
 
     protected function onInit() {
         $this->title = 'Authors';
-        $this->albumsModel = new AlbumsModel();
+        $this->photosModel = new PhotosModel();
     }
 
     public function index() {
         $this->authors = $this->albumsModel->getAll();
     }
 
-    public function category($id) {
-        $this->categoryAlbums = $this->albumsModel->find($id);
+    public function album($id) {
+        $this->albumPhotos = $this->photosModel->find($id);
     }
 
     public function create() {

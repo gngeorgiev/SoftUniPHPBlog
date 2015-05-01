@@ -5,10 +5,11 @@ class AlbumsController extends BaseController {
     protected function onInit() {
         $this->title = 'Authors';
         $this->albumsModel = new AlbumsModel();
+        $this->categoriesModel = new CategoriesModel();
     }
 
     public function index() {
-        $this->authors = $this->albumsModel->getAll();
+        //$this->authors = $this->albumsModel->getAll();
     }
 
     public function category($id) {
@@ -19,12 +20,12 @@ class AlbumsController extends BaseController {
     public function create() {
         if ($this->isPost()) {
             $name = $_POST['name'];
-            if ($this->authorsModel->create($name)) {
-                $this->addInfoMessage("Author created.");
-                $this->redirect("authors");
-            } else {
-                $this->addErrorMessage("Cannot create author.");
-            }
+            $category = $_POST['category'];
+            if ($this->albumsModel->create($name, $category)) {
+                $this->redirect("home");
+            } 
+        } else {
+            $this->categories = $this->categoriesModel->getAll();
         }
     }
 

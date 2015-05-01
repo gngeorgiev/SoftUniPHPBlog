@@ -31,6 +31,8 @@ body > footer {
     text-align: center;
     font-size:16px;
     padding: 10px 0;
+    display: inline-block;
+    width:100%;
 }
 
 header > .menu, header > .menu li {
@@ -51,4 +53,135 @@ header > .menu li:hover {
 header > .menu li a {
     text-decoration: none;
     color:white;
- }
+}
+
+#control-panel {
+    float:left;
+    width:15%;
+    margin-top:40px;
+}
+
+.photo-holder {
+    width:83%;
+    float:left;
+}
+
+.photos-header {
+    width:100%;
+    color:#454545;
+    text-align: center;
+    font-family: sans-serif;
+    transform: rotate(-4deg);
+    letter-spacing: 15px;
+    margin-top:40px;
+}
+
+.photo-holder ul, .photo-holder ul li, .photo-holder ul li * {
+    display: inline-block;
+    float:left;
+}
+
+.photo-holder ul {
+    padding: 0;
+}
+
+.photo-holder ul li {
+    width:29%;
+    margin: 2%;
+}
+
+.photo-holder ul li:hover {
+    width:31%;
+    margin: 1%;
+}
+
+.photo-holder ul li a {
+    text-decoration: none;
+}
+
+.photo-holder ul li img {
+    width:100%;
+}
+
+.photo-holder ul li h1 {
+    width:100%;
+    text-align: center;
+    margin: 0;
+    color:#555;
+    font-family: cursive;
+}
+
+.photo-holder ul li div {
+    width:100%;
+}
+
+.photo-holder ul li div a:first-child {
+    float:left;
+    color:green;
+    margin-left:15%;
+    cursor: url('/content/images/like-cursor.png') 4 12, auto;
+}
+
+.photo-holder ul li div a:last-child {
+    color:red;
+    float:right;
+    margin-right: 15%;
+    cursor: url('/content/images/dislike-cursor.png') 4 12, auto;
+}
+
+
+#control-panel ul, #control-panel ul li, #control-panel ul li a{
+    display:inline-block;
+}
+
+#control-panel ul {
+    margin: 0;
+    padding: 0;
+}
+
+#control-panel ul li {
+    background: #555;
+    cursor: pointer;
+}
+
+#control-panel ul li a{
+    padding: 7px;
+    color:white;
+    border-right: 3px solid #007acc;
+    border-bottom: 3px solid #007acc;
+}
+
+#control-panel ul li a:hover {
+    padding-left:25px;
+}
+
+form {
+    width:40%;
+    margin: 50px 0 50px 30%;
+    display: inline-block;
+}
+
+form * {
+    display:inline-block;
+    float:left;
+    margin: 7px 0;
+}
+
+form > label {
+    width:20%;
+    clear:left;
+}
+
+form > input[type="text"] {
+    width: 80%;
+}
+
+form > input[type="submit"] {
+    float:right;
+    margin: 10px 5px;
+    border-radius: 7px;
+    color:white;
+    background: #496DFC;
+    padding: 5px;
+    cursor: pointer;
+}
