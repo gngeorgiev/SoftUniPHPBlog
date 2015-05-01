@@ -9,7 +9,7 @@
 	<h1 class="photos-header">Photos</h1>
 	<ul>
 	    <?php foreach ($this->viewBag['albumPhotos'] as $photo) : ?>
-	    	<li><a href="/photos/album/<?= $photo['id'] ?>">
+	    	<li title="Click to see comments!"><a href="/photos/id/<?= $photo['id'] ?>">
 	    		<h1><?= $photo['name'] ?></h1>
 	    		<img src="/<?= $photo['path']?>"/>
 	    	</a>

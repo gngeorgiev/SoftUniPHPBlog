@@ -9,11 +9,16 @@ class PhotosController extends BaseController {
     }
 
     public function index() {
-        $this->authors = $this->albumsModel->getAll();
+        $this->photos = $this->photosModel->getAllWithCategoryAndAlbum();
     }
 
     public function album($id) {
-        $this->albumPhotos = $this->photosModel->find($id);
+        $this->albumPhotos = $this->photosModel->findByAlbum($id);
+    }
+
+    public function id($id) {
+        $this->photo = $this->photosModel->findById($id);
+        $this->photoComments = $this->photosModel->photoComments($id);
     }
 
     public function add() {

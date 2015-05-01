@@ -115,6 +115,11 @@ header > .menu li a {
     font-family: cursive;
 }
 
+.photo-holder ul li h2 {
+    text-align: left;
+    font-size:15px;
+}
+
 .photo-holder ul li div {
     width:100%;
 }
@@ -186,4 +191,10 @@ form > input[type="submit"] {
     background: #496DFC;
     padding: 5px;
     cursor: pointer;
+}
+
+
+.comments-holder > form {
+    width:100%;
+    margin:0;
 }
