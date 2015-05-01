@@ -37,7 +37,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'Pesho'),(2,'Kiro'),(3,'Maria'),(6,'Nakov');
+INSERT INTO `categories` VALUES (1,'Nature'),(2,'Cities'),(3,'Animals'),(5,'Sports');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -66,7 +66,9 @@ CREATE TABLE `albums` (
 
 LOCK TABLES `albums` WRITE;
 /*!40000 ALTER TABLE `albums` DISABLE KEYS */;
-INSERT INTO `albums` VALUES (1,'PHP for Dummies',0,0,1),(2,'PHP for Beginners',0,0,1),(3,'PHP Quick Start',0,0,1);
+INSERT INTO `albums` VALUES (1,'Mountines',0,0,1),(2,'Rivers',0,0,1),(3,'Lakes',0,0,1),
+							(4,'NY',0,0,2),(5,'London',0,0,2),(6,'Sofia',0,0,2),
+                            (7,'Lions',0,0,3),(8,'Delfines',0,0,3),(9,'Cats',0,0,3);
 /*!40000 ALTER TABLE `albums` ENABLE KEYS */;
 UNLOCK TABLES;
 
