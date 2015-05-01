@@ -19,6 +19,7 @@
                     echo '<li style="margin-left:50px;"><a href="/admin/categories">Admin Categories</a></li>';
                     echo '<li><a href="/admin/albums">Admin Albums</a></li>';
                     echo '<li><a href="/admin/photos">Admin Photos</a></li>';
+                    echo '<li><a href="/admin/comments">Admin Comments</a></li>';
                 } 
 
                 if($this->isLoggedIn()) {

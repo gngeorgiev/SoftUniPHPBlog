@@ -12,8 +12,10 @@ class AccountController extends BaseController {
 	        $username = $_POST['username'];
 	        $password = $_POST['password'];
 
-	        if($this->accountModel->login($username, $password)) {
-	        	$this->addUserToSESSION($username, false);
+            $result = $this->accountModel->login($username, $password);
+
+	        if($result) {
+	        	$this->addUserToSESSION($username, $result[0]['is_admin']);
 	        	$this->redirect('home');
 	        } else {
 				$this->redirect('account', 'login');
@@ -47,6 +49,7 @@ class AccountController extends BaseController {
     	if(!isset($_SESSION)) {
     		session_start();
     	}
+        var_dump($isAdmin);
     	$_SESSION['username'] = $username;
     	if($isAdmin) {
     		$_SESSION['isAdmin'] = true;

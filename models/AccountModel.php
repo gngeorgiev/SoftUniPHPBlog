@@ -7,15 +7,15 @@ class AccountModel extends BaseModel {
             return false;
         }
 
-        $statement = self::$db->query("SELECT pass_hash FROM users WHERE username = '$username'");
+        $statement = self::$db->query("SELECT * FROM users WHERE username = '$username'");
         $result = $statement->fetch_all(MYSQLI_ASSOC);
         if(!count($result)) {
             return false;
         } else {
             if(password_verify($password, $result[0]['pass_hash'])) {
-                return true;
+                return $result;
             } else {
-                return false;;
+                return false;
             }
         }
     }
