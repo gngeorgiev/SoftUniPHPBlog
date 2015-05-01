@@ -100,7 +100,6 @@ header > .menu li a {
 .photo-holder ul li > a {
     text-decoration: none;
     width:100%;
-    max-height: 300px;
 }
 
 .photo-holder ul li img {
@@ -108,7 +107,7 @@ header > .menu li a {
     height:230px;
 }
 
-.photo-holder ul li h1 {
+.photo-holder ul li h1, .photo-holder ul li h2{
     width:100%;
     text-align: center;
     margin: 0;

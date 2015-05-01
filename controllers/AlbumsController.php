@@ -9,7 +9,7 @@ class AlbumsController extends BaseController {
     }
 
     public function index() {
-        
+        $this->albums = $this->albumsModel->getAllWithCountryName();
     }
 
     public function category($id) {
@@ -31,7 +31,11 @@ class AlbumsController extends BaseController {
 
     public function like($albumId, $categoryId) {
         $this->albumsModel->like($albumId);
-        $this->redirect('albums', 'category', array($categoryId));
+        if($categoryId) {
+            $this->redirect('albums', 'category', array($categoryId));
+        } else {
+            $this->redirect('albums');
+        }
     }
 
     public function dislike($albumId, $categoryId) {
