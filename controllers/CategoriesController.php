@@ -10,8 +10,11 @@ class CategoriesController extends BaseController {
     	if ($this->isPost()) {
             $name = $_POST['name'];
             if ($this->categoriesModel->create($name)) {
-                $this->redirect("home");
-            } 
+                $this->addInfoMessage('Successfully Create Category!');
+            } else {
+                $this->addErrorMessage('Unable to Create Category!');
+            }
+            $this->redirect("home");
         }
     }
 }

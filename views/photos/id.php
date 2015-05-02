@@ -21,13 +21,19 @@
 	    					<div class="comment-text"><?= $comment['text'] ?></div>
 	    				</div>
 	    			<?php endforeach ?>
-	    			<form method="POST" action="/comments/add/<?= $photo['id'] ?>">
-	    				<input type="text" name="comment-text"/>
-	    				<input type="submit" value="Add comment" />
-	    			</form>
 	    		</div>
+	    		<form method="POST" action="/comments/add/<?= $photo['id'] ?>">
+    				<input type="text" name="comment-text"/>
+    				<input type="submit" value="Add comment" />
+	    		</form>
 	    	</a>
 	    	</li>
 	    <?php endforeach ?>
 	</ul>
 </div>
+
+
+<script type="text/javascript">
+	var lastComment = document.querySelector('.comments-holder > .comment:last-child');
+	lastComment.scrollIntoView();
+</script>

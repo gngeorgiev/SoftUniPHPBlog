@@ -8,6 +8,14 @@ class CommentsModel extends BaseModel {
         return $statement->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function find($id) {
+        $statement = self::$db->prepare(
+            "SELECT * FROM comments  WHERE id = ? ORDER BY id");
+        $statement->bind_param("i", $id);
+        $statement->execute();
+        return $statement->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function create($text, $username, $photoId) {
         $statement = self::$db->prepare(
             "INSERT INTO comments VALUES(NULL, ?, ?, ?)");

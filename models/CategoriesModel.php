@@ -7,6 +7,14 @@ class CategoriesModel extends BaseModel {
         return $statement->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getById($id) {
+        $statement = self::$db->prepare(
+            "SELECT * FROM categories WHERE id = ?");
+        $statement->bind_param("i", $id);
+        $statement->execute();
+        return $statement->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function create($name) {
         if ($name == '') {
             return false;

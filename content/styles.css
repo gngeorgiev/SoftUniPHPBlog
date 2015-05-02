@@ -206,6 +206,8 @@ form > input[type="submit"] {
 .comments-holder {
     border:1px solid #cccccc;
     border-top:none;
+    overflow-y:scroll;
+    max-height: 150px;
 }
 
 .comments-holder > .comment {
@@ -223,18 +225,18 @@ form > input[type="submit"] {
     padding: 2px 2px 2px 13px;
 }
 
-.comments-holder > form {
+#photo  form {
     width: 98%;
     margin: 1%;
 }
 
-.comments-holder > form > input[type="text"] {
+#photo  form > input[type="text"] {
     width:66%;
     margin-top:5px;
     float:left;
 }
 
-.comments-holder > form > input[type="submit"] {
+#photo  form > input[type="submit"] {
     float:left;
     width:28%;
     margin:0;
@@ -257,4 +259,23 @@ table td, table th {
 
 table td:nth-child(1) , table th:nth-child(1)  {
     text-align: center;
+}
+
+.info-messages, .error-messages {
+    display:inline-block;
+    width:100%;
+}
+
+.info-messages li {
+    width:100%;
+    color:red;
+    text-align: center;
+    display: inline-block;
+}
+
+.error-messages li {
+    width:100%;
+    color:green;
+    text-align: center;
+    display: inline-block;
 }

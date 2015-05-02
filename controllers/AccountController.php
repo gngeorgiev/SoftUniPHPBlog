@@ -16,8 +16,10 @@ class AccountController extends BaseController {
 
 	        if($result) {
 	        	$this->addUserToSESSION($username, $result[0]['is_admin']);
+                $this->addInfoMessage('Successfully Logged In!');
 	        	$this->redirect('home');
 	        } else {
+                $this->addErrorMessage('Unable to login!');
 				$this->redirect('account', 'login');
 	        }
     	}
@@ -31,8 +33,10 @@ class AccountController extends BaseController {
 
 	        if($this->accountModel->register($username, $hashedPass)) {
 	        	$this->addUserToSESSION($username, false);
+                $this->addInfoMessage('Successfully Register User!');
 	        	$this->redirect('home');
 	        } else {
+                $this->addErrorMessage('Unable to register!');
 				$this->redirect('account', 'register');
 	        }
     	}
@@ -41,6 +45,7 @@ class AccountController extends BaseController {
     public function logout() {
     	if($this->isLoggedIn()) {
     		session_destroy();
+            $this->addInfoMessage('Successfully Logout!');
     		$this->redirect('home');
     	}
     }
@@ -49,7 +54,6 @@ class AccountController extends BaseController {
     	if(!isset($_SESSION)) {
     		session_start();
     	}
-        var_dump($isAdmin);
     	$_SESSION['username'] = $username;
     	if($isAdmin) {
     		$_SESSION['isAdmin'] = true;

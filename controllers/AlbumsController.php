@@ -22,15 +22,22 @@ class AlbumsController extends BaseController {
             $name = $_POST['name'];
             $category = $_POST['category'];
             if ($this->albumsModel->create($name, $category)) {
-                $this->redirect("home");
-            } 
+                $this->addInfoMessage('Successfully Create Album!');
+                $this->redirect('albums', 'category', array($category));
+            } else {
+                $this->addErrorMessage('Unable to Detele Album!');
+            }
         } else {
             $this->categories = $this->categoriesModel->getAll();
         }
     }
 
     public function like($albumId, $categoryId) {
-        $this->albumsModel->like($albumId);
+        if($this->albumsModel->like($albumId)) {
+            $this->addInfoMessage('Successfully Liked Album!');
+        } else {
+            $this->addErrorMessage('Unable to Liked Album!');   
+        }
         if($categoryId) {
             $this->redirect('albums', 'category', array($categoryId));
         } else {
@@ -39,37 +46,12 @@ class AlbumsController extends BaseController {
     }
 
     public function dislike($albumId, $categoryId) {
-        $this->albumsModel->dislike($albumId);
-        $this->redirect('albums', 'category', array($categoryId));
-    }
-
-    public function edit($id) {
-        if ($this->isPost()) {
-            // Edit the author in the database
-            $name = $_POST['name'];
-            if ($this->authorsModel->edit($id, $name)) {
-                $this->addInfoMessage("Author edited.");
-                $this->redirect("authors");
-            } else {
-                $this->addErrorMessage("Cannot edit author.");
-            }
-        }
-
-        // Display edit author form
-        $this->author = $this->authorsModel->find($id);
-        if (!$this->author) {
-            $this->addErrorMessage("Invalid author.");
-            $this->redirect("authors");
-        }
-    }
-
-    public function delete($id) {
-        if ($this->authorsModel->delete($id)) {
-            $this->addInfoMessage("Author deleted.");
+        if($this->albumsModel->dislike($albumId)) {
+            $this->addInfoMessage('Successfully Dislike Album!');
         } else {
-            $this->addErrorMessage("Cannot delete author #" . htmlspecialchars($id) . '.');
-            $this->addErrorMessage("Maybe it is in use.");
+            $this->addErrorMessage('Unable to Dislike Album!');   
         }
-        $this->redirect("authors");
+
+        $this->redirect('albums', 'category', array($categoryId));
     }
 }
