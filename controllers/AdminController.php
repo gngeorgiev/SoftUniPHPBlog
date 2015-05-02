@@ -28,8 +28,12 @@ class AdminController extends BaseController {
 		$this->comments = $this->commentsModel->getAll();
 	}
 
-	public function editCategory($id) {	
+	public function users() {
+		$this->users = $this->adminModel->getAllUsers();
+	}
 
+	public function editCategory($id) {	
+		
 	}
 
 	public function editAlbum($id) {
@@ -58,8 +62,12 @@ class AdminController extends BaseController {
 	}
 
 	public function deletePhoto($id) {
+		$photo = $this->photosModel->findById($id);
 		if($this->adminModel->deletePhoto($id)) {
-			$this->redirect('admin', 'photos');
+			if(file_exists($photo[0]['path'])) {
+				unlink($photo[0]['path']);
+				$this->redirect('admin', 'photos');
+			}
 		}
 	}
 
@@ -69,4 +77,22 @@ class AdminController extends BaseController {
 		}
 	}
 
+	public function deleteUser($id) {
+		if($this->adminModel->deleteUser($id)) {
+			$this->redirect('admin', 'users');
+		}
+	}
+
+
+	public function makeAdmin($id) {
+		if($this->adminModel->makeAdmin($id)) {
+			$this->redirect('admin', 'users');
+		}
+	}
+
+	public function removeAdmin($id) {
+		if($this->adminModel->removeAdmin($id)) {
+			$this->redirect('admin', 'users');
+		}
+	}
 }

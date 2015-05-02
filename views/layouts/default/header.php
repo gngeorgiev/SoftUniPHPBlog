@@ -20,6 +20,7 @@
                     echo '<li><a href="/admin/albums">Admin Albums</a></li>';
                     echo '<li><a href="/admin/photos">Admin Photos</a></li>';
                     echo '<li><a href="/admin/comments">Admin Comments</a></li>';
+                    echo '<li><a href="/admin/users">Admin Users</a></li>';
                 } 
 
                 if($this->isLoggedIn()) {
