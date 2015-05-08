@@ -1,5 +1,8 @@
 <script src="/content/js/getPostsTags.js"></script>
 
+<?php if($this->isAdmin()) echo ' <a href="/posts/create" class="btn-floating btn-large waves-effect waves-light red"><i class="mdi-content-add"></i></a>'?>
+                    
+
 <?php foreach ($this->posts as $post) : ?>
 	<div class="post blog-post">
         <input type="hidden" class="postId" value="<?=$post['id']?>">

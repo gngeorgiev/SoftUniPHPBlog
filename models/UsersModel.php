@@ -11,12 +11,14 @@ class UsersModel extends BaseModel {
 		$statement->bind_param("s", $username);
 		$statement->execute();
 		$result = $this->fetch($statement);
-		if ($result) {
-			if(!password_verify($password, $result[0]["password_hash"]))
-			{
-				return "Login failed.";
-			}	
+		if (!$result) {
+			return "No such user";
 		}
+
+		if(!password_verify($password, $result[0]["password_hash"]))
+		{
+			return "Login failed.";
+		}	
 
 		$_SESSION["userId"] = $result[0]["id"];
 		$_SESSION["username"] = $username;

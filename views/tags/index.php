@@ -1,4 +1,7 @@
 <div class="row">
+
+<?php if($this->isAdmin()) echo ' <a href="/tags/create" class="btn-floating btn-large waves-effect waves-light red"><i class="mdi-content-add"></i></a>'?>
+
 All tags:<br/><br/>
 	<?php foreach ($this->tags as $tag) : ?>
 		<div class="col-md-4"><?= htmlspecialchars($tag['tag']) ?> </div>
