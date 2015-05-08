@@ -10,7 +10,7 @@
         <form class="delete-form" action="/posts/delete" method="POST">
 			<input type="hidden" name="requestToken" value="<?=$_SESSION['requestToken']?>">
 			<input type="hidden" name="id" value="<?=$this->post['id']?>">
-			<a class="delete btn btn-danger">Delete Post</a>
+			<a class="delete btn btn-danger red">Delete Post</a>
 		</form>
     <?php endif;?>
 </div>

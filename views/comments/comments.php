@@ -1,4 +1,4 @@
-<script src="/content/js/attachDeleteHandler.js"></script>
+
 <?php foreach ($this->comments as $comment) : ?>
 	<div class="comment">
 		<span><?= htmlspecialchars($comment['content']) ?></span> <br/>
@@ -17,7 +17,7 @@
                     <input type="hidden" name="requestToken" value="<?=$_SESSION['requestToken']?>">
                     <input type="hidden" name="id" value="<?=$comment['id']?>">
                     <input type="hidden" name="returnUrl" value="<?=$this->returnUrl?>">
-                    <a class="delete btn-sm btn btn-sm btn-danger">Delete Comment</a>
+                    <button class="delete btn-sm btn btn-sm btn-danger red" type="submit">Delete Comment</button>
                 </form>
         	<?php endif;?>
         	<?php if($comment["type"] == 0) :?>
@@ -26,7 +26,7 @@
                     <input type="hidden" name="requestToken" value="<?=$_SESSION['requestToken']?>">
                     <input type="hidden" name="id" value="<?=$comment['id']?>">                    
                     <input type="hidden" name="returnUrl" value="<?=$this->returnUrl?>">
-                    <a class="delete btn-sm btn btn-sm btn-danger">Delete Comment</a>
+                    <button class="delete btn-sm btn btn-sm btn-danger red" type="submit">Delete Comment</button>
                 </form>
         	<?php endif;?>
         <?php endif; ?>

@@ -12,8 +12,6 @@
 
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="/content/js/getSidebarContent.js"></script>
-    <script src="/content/js/bootbox.min.js"></script>
-    <script src="/content/js/attachDeleteHandler.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
 </head>
 
