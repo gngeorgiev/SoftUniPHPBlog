@@ -1,20 +1,2 @@
-<div id="control-panel">
-	<ul>
-		<li><a href="/categories/create">Create Category</a></li>
-	</ul>
-</div>
-
-
-<div id="categories" class="photo-holder">
-	<h1 class="photos-header">Categories</h1>
-	<ul>
-	    <?php foreach ($this->viewBag['categories'] as $category) : ?>
-	    	<li><a href="/albums/category/<?=$category['id'] ?>">
-	    		<h1><?= $category['name'] ?></h1>
-	    		<img src="/content/images/photo-category.png"/>
-	    	</a>
-	    	</li>
-	    <?php endforeach ?>
-	</ul>
-</div>
-
+	<h1 class="blog-title">Softuni Blog</h1>
+	<p class="lead blog-description">Practital project for the Web Development Basics April 2015 course</p>

@@ -1,15 +1,17 @@
-<?php
+<div class="blog-header">
 
-renderMessages(INFO_MESSAGES_SESSION_KEY, 'info-messages');
-renderMessages(ERROR_MESSAGES_SESSION_KEY, 'error-messages');
+<?php 
+renderMessages(INFO_MESSAGES_SESSION_KEY, 'alert alert-success');
+renderMessages(ERROR_MESSAGES_SESSION_KEY, 'alert alert-danger');
 
 function renderMessages($messagesKey, $cssClass) {
     if (isset($_SESSION[$messagesKey]) && count($_SESSION[$messagesKey]) > 0) {
-        echo '<ul class="' . $cssClass . '">';
         foreach ($_SESSION[$messagesKey] as $msg) {
-            echo "<li>" . htmlspecialchars($msg) . '</li>';
+            echo "<div class='$cssClass'>" . htmlspecialchars($msg) . '</div>';
         }
-        echo '</ul>';
     }
-    $_SESSION[$messagesKey] = [];
+    $_SESSION[$messagesKey] = array();
 }
+?>
+
+</div>
