@@ -5,10 +5,10 @@ define('DEFAULT_ACTION', 'index');
 define('DEFAULT_VIEW', 'index');
 define('DEFAULT_LAYOUT', 'default');
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'mvc_project_db');
+define('DB_HOST', 'mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/');
+define('DB_USER', 'adminjWmr7ne');
+define('DB_PASS', 'RVADr8tdqDFA');
+define('DB_NAME', 'diy');
 
 define('INFO_MESSAGES_SESSION_KEY', 'infoMessages');
 define('ERROR_MESSAGES_SESSION_KEY', 'errorMessages');
